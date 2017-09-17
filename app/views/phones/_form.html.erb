@@ -1,0 +1,11 @@
+<%= form_for [@carrier, @phone] do |t| %>
+<%= t.label :name %>
+<%= t.text_field :name%>
+<%= t.label :brand %>
+<%= t.text_field :brand%>
+<%= t.label :model %>
+<%= t.text_field :model%>
+<%= t.label :photo_url %>
+<%= t.text_area :photo_url %>
+<%= t.submit %>
+<% end %>

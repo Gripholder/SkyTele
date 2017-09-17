@@ -1,1 +1,14 @@
 <h1><%= @carrier.name %></h1>
+
+<% if @phones.empty? %>
+<p>No phones listed on this carrier!</p>
+<% else %>
+<%= @phones.each do |phone| %>
+<%= link_to phone.name, carrier_phone_path(@carrier, @phone) %>
+<% end %>
+<% end %>
+
+<%= link_to "Back", carriers_path %>
+<%= link_to "Edit this carrier", edit_carrier_path(@carrier) %>
+<%= link_to "Delete this carrier", carrier_path(@carrier), method: :delete %>
+<%= link_to "Add phone", new_carrier_phone_path(@carrier) %>

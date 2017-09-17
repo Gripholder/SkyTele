@@ -5,7 +5,7 @@ class CreatePhones < ActiveRecord::Migration[5.1]
       t.string :brand
       t.string :model
       t.text :photo_url
-      t.references :phone
+      t.references :carrier
 
       t.timestamps
     end

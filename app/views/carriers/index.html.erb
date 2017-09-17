@@ -1,11 +1,11 @@
-<h1>All Carriers</h1>
+<h1>All Carriers</h1><%= link_to "Log out", destroy_user_session_path, method: :delete %>
 
 
 <% if @carriers.blank? %>
 <p>No carriers listed on the account!</p>
 <% else %>
 <% @carriers.each do |carrier| %>
-<p><%= carrier.name %></p>
+<%= link_to carrier.name, carrier_path(carrier) %><br>
 <% end %>
 <% end %>
 
