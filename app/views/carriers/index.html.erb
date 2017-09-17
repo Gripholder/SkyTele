@@ -1,0 +1,12 @@
+<h1>All Carriers</h1>
+
+
+<% if @carriers.blank? %>
+<p>No carriers listed on the account!</p>
+<% else %>
+<% @carriers.each do |carrier| %>
+<p><%= carrier.name %></p>
+<% end %>
+<% end %>
+
+<%= link_to "Add a carrier", new_carrier_path %>
