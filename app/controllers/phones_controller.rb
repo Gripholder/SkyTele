@@ -8,11 +8,12 @@ class PhonesController < ApplicationController
   end
   def show
     @phone = Phone.find(params[:id])
+    @carrier = Carrier.find(params[:carrier_id])
   end
   def create
     @carrier = Carrier.find(params[:carrier_id])
     if @carrier.user == current_user
-    @phone = @carrier.phones.create(phone_params)
+    @phone = @carrier.phones.create!(phone_params)
     flash[:alert] = "New phone was added successfully!"
   else
     flash[:alert] = "Failed to add new phone"
@@ -20,8 +21,8 @@ class PhonesController < ApplicationController
   redirect_to carrier_path(@carrier)
 end
   def edit
-    @phone = Carrier.find(params[:carrier_id]).phones.find(params[:id])
-    @carrier = Carrier.find(params[:carrier_id])
+    @phone = Phone.find(params[:id])
+    @carrier = @phone.carrier
     if @carrier.user != current_user
       flash[:alert] = "You are not authorized to edit this account information"
       redirect_to carriers_path
@@ -42,7 +43,7 @@ end
   def destroy
     @carrier = Carrier.find(params[:carrier_id])
     @phone = @carrier.phones.find(params[:id])
-    if @phone.user == current_user
+    if @carrier.user == current_user
     @phone.destroy
   else
     flash[:alert] = "You are not authorized to make changes to this account"

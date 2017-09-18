@@ -3,11 +3,12 @@
 <% if @phones.empty? %>
 <p>No phones listed on this carrier!</p>
 <% else %>
-<%= @phones.each do |phone| %>
-<%= link_to phone.name, carrier_phone_path(@carrier, @phone) %>
+<% @phones.each do |phone| %>
+<a href="<%= @carrier.id %>/phones/<%= phone.id %>"><%= phone.name %></a>
 <% end %>
 <% end %>
 
+<br>
 <%= link_to "Back", carriers_path %>
 <%= link_to "Edit this carrier", edit_carrier_path(@carrier) %>
 <%= link_to "Delete this carrier", carrier_path(@carrier), method: :delete %>
