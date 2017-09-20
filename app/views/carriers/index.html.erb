@@ -1,12 +1,24 @@
-<h1>All Carriers</h1><%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<h1 id="subhead">Select a Carrier</h1>
 
-
+<div class="log" id="droplist">
 <% if @carriers.blank? %>
-<p>No carriers listed on the account!</p>
+<p class="na">No carriers listed on the account!</p>
+<p class="na">Click below to add a carrier</p>
 <% else %>
-<% @carriers.each do |carrier| %>
-<%= link_to carrier.name, carrier_path(carrier) %><br>
-<% end %>
-<% end %>
 
-<%= link_to "Add a carrier", new_carrier_path %>
+<div class="logo">
+<% @carriers.each do |carrier| %>
+<div class="logo_id">
+<a href="/carriers/<%= carrier.id %>"><img id="logo" src="<%= carrier.logo_url %>">
+<h3><%= carrier.name %></h3></a>
+</div>
+<% end %>
+</div>
+<br>
+
+</div>
+<% end %>
+<div class="icon">
+  <a href="carriers/new">
+<img id="icon" src="http://www.aicr.org/new/images/photos/100x100px/WeightAdd.jpg" alt=""></a>
+</div>

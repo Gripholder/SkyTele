@@ -1,11 +1,17 @@
-<h1><%= @carrier.name %></h1>
+<h1 id="subhead"><%= @carrier.name %></h1>
 
+<div class="log">
+<div class="">
 <% if @phones.empty? %>
 <p>No phones listed on this carrier!</p>
 <% else %>
 <% @phones.each do |phone| %>
-<a href="<%= @carrier.id %>/phones/<%= phone.id %>"><%= phone.name %></a>
+<div class="logo_id">
+<a href="/carriers/<%= @carrier.id %>/phones/<%= phone.id %>"><img id="logo" src="<%= phone.photo_url %>">
+<h3><%= phone.name %></h3></a>
+</div>
 <% end %>
+</div>
 <% end %>
 
 <br>
@@ -13,3 +19,4 @@
 <%= link_to "Edit this carrier", edit_carrier_path(@carrier) %>
 <%= link_to "Delete this carrier", carrier_path(@carrier), method: :delete %>
 <%= link_to "Add phone", new_carrier_phone_path(@carrier) %>
+</div>

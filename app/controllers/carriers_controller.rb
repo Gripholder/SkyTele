@@ -3,18 +3,32 @@ def index
   if !current_user
     redirect_to new_user_session
   else
-  @carriers = Carrier.all
+  @carriers = current_user.carriers.all
+  @user = user_session_path
 end
 end
 def new
-  @carrier = Carrier.new
+  @carrier = current_user.carriers.new
+  @user = current_user
+  # @carrier = current_user.carriers.new
 end
 def show
   @carrier = Carrier.find(params[:id])
   @phones = @carrier.phones
 end
 def create
-  @carrier = Carrier.create!(carrier_params.merge(user: current_user))
+ @existing_carrier = Carrier.find(params[:carrier][:id])
+ #create new object with attributes of existing record
+ @carrier = @user.carriers.create(@existing_carrier.attributes)
+ return @carrier
+ # @carrier = Carrier.find(params[:id])
+ #create new object with attributes of existing record
+ # @post = Post.new(@existing_post.attributes)
+ # render "your_post_form"
+  # @user = current_user
+  # @carrier = @user.carriers.create!(carrier_params)
+  # current_user.carriers.create!(@carrier)
+  # @carrier = Carrier.create!(carrier_params.merge(user: current_user))
   redirect_to carriers_path
 end
 def edit

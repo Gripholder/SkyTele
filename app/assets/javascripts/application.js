@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function(){
+// console.log("heoolo")
+//
+// $("#logo").mouseenter(function(){
+// console.log("working!")
+//     $(".logo").css("background-color", "black");
+//     $("#logo").css("visibility", "hidden")
+// });
+// $("#logo").mouseleave(function(){
+// console.log("working!")
+//     $("#logo").css("visibility", "visible")
+// });
+// });

@@ -1,0 +1,23 @@
+
+
+<div class="content">
+<h1 id="subhead">Carriers</h1>
+<div class="logo">
+<% @carriers.each do |carrier| %>
+<div class="logo_id">
+<a href="#"><img id="logo" src="<%= carrier.logo_url %>">
+<h3><%= carrier.name %></h3></a>
+</div>
+<% end %>
+</div>
+
+<h1 id="subhead">Phones</h1>
+<div class="logo">
+<% @phones.each do |phone| %>
+<a href="#"><div class="logo_id">
+<img id="logo" src="<%= phone.photo_url %>">
+<h3><%= phone.name %></h3></a>
+</div>
+<% end %>
+</div>
+</div>
