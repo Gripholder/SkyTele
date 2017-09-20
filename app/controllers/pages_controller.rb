@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
   end
   def products
-    @carriers = Carrier.all
+    @carriers = User.first.carriers.all
     @phones = Phone.all
   end
   def about

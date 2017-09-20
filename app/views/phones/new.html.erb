@@ -1,4 +1,10 @@
-<h1>Add Phone</h1>
+<h1 id="subhead">Add a Phone</h1>
+
+<%= form_for [@carrier, @phone] do |f| %>
+
+<%= f.collection_select(:id, @admin, :id, :name) %>
 
 
-<%= render "form" %>
+ <%= f.submit %>
+
+<% end %>

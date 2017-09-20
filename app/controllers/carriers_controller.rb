@@ -19,8 +19,13 @@ end
 def create
   @user = current_user
  @existing_carrier = Carrier.find(params[:carrier][:id])
+ if @user.carriers.where(name: @existing_carrier.name).blank?
  #create new object with attributes of existing record
+ # @carrier = @user.carriers.create(params[@existing_carrier])
  @carrier = @user.carriers.create(name: @existing_carrier.name, logo_url: @existing_carrier.logo_url)
+ else
+   flash[:alert] = "You are already subscibed to this carrier"
+ end
  # @carrier = Carrier.find(params[:id])
  #create new object with attributes of existing record
  # @post = Post.new(@existing_post.attributes)

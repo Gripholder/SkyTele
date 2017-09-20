@@ -3,21 +3,26 @@ class PhonesController < ApplicationController
     @phones = Phone.all
   end
   def new
-    @carrier = Carrier.find(params[:carrier_id])
+    @user = current_user
+    @usercarrier = Carrier.find(params[:carrier_id])
+    @carrier = @user.carriers.find_by(name: @usercarrier.name)
     @phone = @carrier.phones.new
+    @admin = User.first.carriers.find_by(name: @carrier.name).phones.all
   end
   def show
     @phone = Phone.find(params[:id])
     @carrier = Carrier.find(params[:carrier_id])
   end
   def create
-    @carrier = Carrier.find(params[:carrier_id])
-    if @carrier.user == current_user
-    @phone = @carrier.phones.create!(phone_params)
-    flash[:alert] = "New phone was added successfully!"
-  else
-    flash[:alert] = "Failed to add new phone"
-  end
+    @user = current_user
+    @carrier = @user.carriers.find(params[:carrier_id])
+    @admin = User.first.carriers.find_by(name: @carrier.name).phones.all
+    @existing_phone = Phone.find(params[:phone][:id])
+    if @carrier.phones.where(model: @existing_phone.model).blank?
+      @phone = @carrier.phones.create!(name: @existing_phone.name, brand: @existing_phone.brand, model: @existing_phone.model, photo_url: @existing_phone.photo_url, carrier_id: @existing_phone.carrier_id)
+    else
+      flash[:alert] = "You already own this phone."
+    end
   redirect_to carrier_path(@carrier)
 end
   def edit
