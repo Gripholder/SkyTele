@@ -17,10 +17,10 @@ def show
   @phones = @carrier.phones
 end
 def create
+  @user = current_user
  @existing_carrier = Carrier.find(params[:carrier][:id])
  #create new object with attributes of existing record
- @carrier = @user.carriers.create(@existing_carrier.attributes)
- return @carrier
+ @carrier = @user.carriers.create(name: @existing_carrier.name, logo_url: @existing_carrier.logo_url)
  # @carrier = Carrier.find(params[:id])
  #create new object with attributes of existing record
  # @post = Post.new(@existing_post.attributes)
