@@ -5,6 +5,8 @@
 <% if @phones.empty? %>
 <p>No phones listed on this carrier!</p>
 <% else %>
+
+<div class="logo">
 <% @phones.each do |phone| %>
 <div class="logo_id">
 <a href="/carriers/<%= @carrier.id %>/phones/<%= phone.id %>"><img id="logo" src="<%= phone.photo_url %>">
@@ -15,8 +17,10 @@
 <% end %>
 
 <br>
-<%= link_to "Back", carriers_path %>
-<%= link_to "Edit this carrier", edit_carrier_path(@carrier) %>
-<%= link_to "Delete this carrier", carrier_path(@carrier), method: :delete %>
-<%= link_to "Add phone", new_carrier_phone_path(@carrier) %>
+<div id="menu">
+<%= link_to "Back", carriers_path, :id => "menuoptions" %>
+<%= link_to "Edit this carrier", edit_carrier_path(@carrier), :id => "menuoptions" %>
+<%= link_to "Delete this carrier", carrier_path(@carrier), method: :delete, :id => "menuoptions" %>
+<%= link_to "Add phone", new_carrier_phone_path(@carrier), :id => "menuoptions" %>
+</div>
 </div>

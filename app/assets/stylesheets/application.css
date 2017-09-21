@@ -15,6 +15,8 @@
  */
 body {
   background-color: rgba(230,230,230,1);
+  min-height: 100%;
+  /*margin: 0;*/
 }
 
 li {
@@ -122,7 +124,6 @@ li {
   height: 700px;
 }
 
-
 #image2, #image4 {
   width: 100%;
 }
@@ -139,7 +140,7 @@ li {
 
 #div1, #div4 {
   float: left;
-  justify-content: center;
+  text-align: center;
   margin-left: 10%;
   margin-top: 10%;
   width: 20%;
@@ -191,6 +192,59 @@ a {
   display: block;
   /*z-index: 999;*/
   transition: 0.3s;
+}
+
+#photo {
+  width: 200px;
+  height: 200px;
+  transform: rotate(270deg);
+  border-radius: 50%;
+  margin-bottom: 50px;
+  margin-top: 130px;
+  margin-left: 39%;
+  margin-right: 50%;
+}
+
+#ido {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#inline {
+  display: inline;
+  color: rgba(91,54,126,1);
+}
+
+#inline1 {
+  display: inline;
+}
+
+.log {
+  margin-bottom: 200px;
+}
+
+.contact {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 254px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#list {
+  margin-bottom: 50px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#list1 {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .na {
@@ -245,4 +299,84 @@ footer {
 
 #footer {
   margin: auto  ;
+  color: white
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: rgba(91,54,126,1);
+    color: white;
+    /*padding: 16px;*/
+    font-size: 14px;
+    /*border: none;*/
+    cursor: pointer;
+    margin-top: -15px;
+    padding: 10px;
+    border: 20px;
+    /*margin-right: 10px;*/
+    border-radius: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    /*position: relative;*/
+    /*display: inline-block;*/
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdownlist {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+#menuoptions {
+  margin-bottom: 20px;
+  color: rgba(91,54,126,1);
+  transition: font-size 0.3s, color 0.1s;
+}
+
+#menuoptions:hover {
+  font-size: 30px;
+  cursor: pointer;
+  color: rgba(100,100,100,1);
+  transition: font-size 0.3s, color 0.1s;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgba(91,54,126,1);
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: rgba(151,101,176,1);
 }

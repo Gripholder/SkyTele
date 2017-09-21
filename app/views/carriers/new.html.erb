@@ -1,10 +1,14 @@
 <h1 id="subhead">Add a Carrier</h1>
-
+<div class="dropdownlist">
 <%= form_for @carrier do |f| %>
 
 <%= f.collection_select(:id, User.first.carriers.all, :id, :name) %>
 
 
- <%= f.submit %>
+ <%= f.submit "Add Carrier"%>
 
 <% end %>
+<div id="menu">
+<%= link_to "Back", carriers_path, :id => "menuoptions" %>
+</div>
+</div>

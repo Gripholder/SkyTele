@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/' => "pages#home", page:"home"
   get '/products' => "pages#products", page:"products"
   get '/about' => "pages#about", page:"about"
+  get '/contact' => "pages#contact", page:"contact"
 
+  resources :profiles
   resources :users, only: [:show]
   resources :carriers do
     resources :phones

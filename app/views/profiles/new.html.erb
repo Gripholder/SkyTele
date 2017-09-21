@@ -1,0 +1,26 @@
+<div class="user">
+  <h2 id="subhead">Edit profile</h2>
+
+  <div class="log">
+
+
+<%= form_for @profile, html: { multipart: true } do |t| %>
+
+  <%= t.label :username %>
+  <%= t.text_field :username %><br>
+<br>
+  <%= t.label :firstname %>
+  <%= t.text_field :firstname %><br>
+<br>
+  <%= t.label :lastname %>
+  <%= t.text_field :lastname %><br>
+<br>
+  <%= t.label :age %>
+  <%= t.text_field :age %><br>
+<br>
+  <%= t.file_field :photo %><br>
+<br>
+  <%= t.submit "Submit"%>
+<% end %>
+</div>
+</div>
