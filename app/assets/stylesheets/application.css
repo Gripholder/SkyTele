@@ -18,10 +18,6 @@ body {
   min-height: 100%;
 }
 
-li {
-  list-style:
-}
-
 .head {
   position: fixed;
   background-color: rgba(230,230,230,0.8);
