@@ -21,7 +21,7 @@
       <a id="nav" href="/contact">Contact Us</a>
       <% if current_user %>
       <div class="dropdown">
-  <button class="dropbtn"><%= current_user.email %></button>
+  <a href="profiles/<%= current_user.profile %>"><button class="dropbtn"><%= current_user.email %></button></a>
   <div class="dropdown-content">
     <a href="profiles/<%= current_user.profile %>">Profile</a>
     <a href="/carriers">Carriers</a>

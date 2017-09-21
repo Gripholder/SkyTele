@@ -252,8 +252,12 @@ a {
   width: 100%;
 }
 
-.about, .user {
+.about {
   padding-bottom: 210px;
+}
+
+.user {
+  margin-bottom: 334px;
 }
 
 .paragraph {
@@ -347,3 +351,4 @@ footer {
 .dropdown:hover .dropbtn {
   background-color: rgba(151,101,176,1);
 }
+g
