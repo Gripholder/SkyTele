@@ -23,8 +23,8 @@ class PhonesController < ApplicationController
     else
       flash[:alert] = "You already own this phone."
     end
-  redirect_to carrier_path(@carrier)
-end
+    redirect_to carrier_path(@carrier)
+  end
   def edit
     @phone = Phone.find(params[:id])
     @carrier = @phone.carrier
@@ -49,12 +49,12 @@ end
     @carrier = Carrier.find(params[:carrier_id])
     @phone = @carrier.phones.find(params[:id])
     if @carrier.user == current_user
-    @phone.destroy
-  else
-    flash[:alert] = "You are not authorized to make changes to this account"
+      @phone.destroy
+    else
+      flash[:alert] = "You are not authorized to make changes to this account"
+    end
+    redirect_to carrier_path(@carrier)
   end
-  redirect_to carrier_path(@carrier)
-end
   private
   def phone_params
     params.require(:phone).permit(:name, :brand, :model, :photo_url)

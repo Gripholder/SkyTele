@@ -6,6 +6,8 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.string :lastname
       t.integer :age
 
+      t.references :user
+
       t.timestamps
     end
   end
