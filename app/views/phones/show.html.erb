@@ -1,8 +1,21 @@
-<%= @phone.brand %>
-<%= @phone.name %>
-<%= @phone.model %>
-<img src="<%= @phone.photo_url %>">
 
-<%= link_to "Back", carrier_path(@carrier) %>
-<a href="<%= @phone.id %>/edit">Edit</a>
-<%= link_to "Delete", carrier_phone_path, method: :delete %>
+<div class="phone">
+  <div class="phonephoto">
+    <img id="phonephoto" src="<%= @phone.photo_url %>">
+  </div>
+  <div class="specname">
+    <h3>Name: </h3>
+    <h3>Brand: </h3>
+    <h3>Model: </h3>
+  </div>
+    <div class="specs">
+        <h3><%= @phone.name %></h3>
+        <h3><%= @phone.brand %></h3>
+        <h3><%= @phone.model %></h3>
+</div>
+</div>
+<div id="menu">
+<%= link_to "Back", carrier_path(@carrier), :id => "menuoptions"  %>
+<a id="menuoptions" href="<%= @phone.id %>/edit">Edit</a>
+<%= link_to "Delete", carrier_phone_path, method: :delete, :id => "menuoptions"  %>
+</div>
