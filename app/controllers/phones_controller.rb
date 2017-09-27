@@ -33,18 +33,20 @@ class PhonesController < ApplicationController
       redirect_to carriers_path
     end
   end
-  def update
-    @phone = Carrier.find(params[:carrier_id]).phones.find(params[:id])
+
+  def update  #This method was erroring becasue there is no assosiation between phones and users. You can't use @phone.user without the existance of assosiation.
     @carrier = Carrier.find(params[:carrier_id])
-    if @phone.user == current_user
+    @phone = @carrier.phones.find(params[:id])
+    if @carrier.user == current_user
       @phone.update(phone_params)
       flash[:notice] = "Your edits were updated successfully"
-      redirect_to carrier_phone_path(@phone)
+      redirect_to carrier_phone_path(@carrier, @phone)    #You need to pass two variables here, because it's a nested resource
     else
       flash[:alert] = "You are not authorized to make changes to this account"
       redirect_to carrier_phones_path
     end
   end
+
   def destroy
     @carrier = Carrier.find(params[:carrier_id])
     @phone = @carrier.phones.find(params[:id])
