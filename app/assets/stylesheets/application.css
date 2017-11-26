@@ -13,6 +13,8 @@
 *= require_tree .
 *= require_self
 */
+
+
 body {
   background-color: rgba(230,230,230,1);
   min-height: 100%;
@@ -33,6 +35,7 @@ body {
   float: left;
   margin: 15px 0 0 250px;
   color: rgba(91,54,126,1);
+  font-size: 36px;
 }
 
 .nav {
@@ -240,10 +243,6 @@ a {
   display: inline;
 }
 
-.log {
-  margin-bottom: 200px;
-}
-
 .contact {
   margin: auto;
   margin-top: 50px;
@@ -288,10 +287,6 @@ a {
   margin-bottom: 210px;
 }
 
-.user {
-  margin-bottom: 334px;
-}
-
 .paragraph {
   width: 100%;
   float: none;
@@ -303,21 +298,19 @@ p {
   text-align: center;
 }
 
+.actions {
+  margin-bottom: 50px;
+}
+
 footer {
   display: flex;
-  list-style: none;
-  width: auto;
   background: rgba(91,54,126,1);
-  color: white;
-  bottom: 0;
   padding: 1rem;
-  text-align: center;
-  justify-content: center;
 }
 
 #footer {
-  margin: auto  ;
-  color: white
+  margin: auto;
+  color: white;
 }
 
 .dropbtn {
