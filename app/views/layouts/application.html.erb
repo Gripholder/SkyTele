@@ -15,7 +15,38 @@
     <div class="head">
     <a class="name" href="/">Skytele</a>
     <div class="nav">
-      <a id="nav" href="/products">Products</a>
+      <!-- <a id="nav" href="/products">Products</a> -->
+
+      <!-- <div class="drop-down" id="nav">
+         <ul>
+           <li class="sub-menu-parent" tab-index="0">
+             <a href="http://google.com">Shop <i>⌵</i></a>
+             <ul class="sub-menu dropdown-content">
+               <li><a class="sub-menu-child" href="#">Phones</a></li>
+               <li><a class="sub-menu-child" href="#">Services</a></li>
+               <li><a class="sub-menu-child" href="#">Carriers</a></li>
+               <li><a href="#">Sub Item 4</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div> -->
+
+       <div class="dropdown">
+   <a href="#"><button id="shop" class="dropbtn">Shop <i>⌵</i></button></a>
+   <div class="dropdown-content">
+     <a href="#">Phones</a>
+     <a href="#">Carriers</a>
+     <a href="#">Services</a>
+   </div>
+ </div>
+
+      <!-- <div class="dropdown">
+  <a href="/profiles/<%= current_user.profile %>"><button class="dropbutton">Shop <i>⌵</i></button></a>
+  <div class="dropdown-content">
+    <a href="/profiles/<%= current_user.profile %>">Phones</a>
+    <a href="/carriers">Services</a>
+  </div>
+</div> -->
       <a id="nav" href="/about">About</a>
       <a id="nav" href="/contact">Contact Us</a>
       <% if current_user %>
